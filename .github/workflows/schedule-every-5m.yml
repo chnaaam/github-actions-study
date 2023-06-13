@@ -1,0 +1,15 @@
+name: cron
+
+on:
+  schedule:
+    # 5분에 한 번씩 실행
+    - cron: '*/5 * * * *'
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: print my secret key
+        run: echo "${{secrets.TEST_SECRET_KEY}}"
